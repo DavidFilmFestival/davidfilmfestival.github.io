@@ -3,75 +3,83 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
-        // Get the repository name from the URL path
-        const pathSegments = window.location.pathname.split('/');
-        const repoName = pathSegments[1]; // This will be 'home' or whatever name you chose
-        const baseUrl = repoName ? `/${repoName}` : '';
-            
-        const response = await fetch(`${baseUrl}/data/festival-data.json`);
+        const response = await fetch('data/festival-data.json');
         if (!response.ok) {
-            throw new Error('Failed to load festival data');
+            // If direct fetch fails, try with repository name
+            const pathSegments = window.location.pathname.split('/');
+            const repoName = pathSegments[1];
+            const baseUrl = repoName ? `/${repoName}` : '';
+            const secondResponse = await fetch(`${baseUrl}/data/festival-data.json`);
+            
+            if (!secondResponse.ok) {
+                throw new Error('Failed to load festival data');
+            }
+            festivalData = await secondResponse.json();
+        } else {
+            festivalData = await response.json();
         }
-        festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
+        // Add fallback data for testing
+        document.querySelector('.page-header h1').textContent = "Festival News";
+        document.querySelector('.page-header p').textContent = "Stay updated with the latest festival announcements and highlights.";
     }
 }
+
 // Update page content with loaded data
 function updatePageContent() {
-    // Update news grid
-    const newsGrid = document.getElementById('news-grid');
-    newsGrid.innerHTML = festivalData.news.map(news => `
-        <div class="col-md-6 col-lg-4">
-            <div class="card news-card h-100">
-                <img src="${news.image}" class="card-img-top" alt="${news.title}">
-                <div class="card-body">
-                    <h5 class="card-title">${news.title}</h5>
-                    <p class="card-text text-muted">${formatDate(news.date)}</p>
-                    <p class="card-text">${news.summary}</p>
-                    <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#newsModal${news.id}">
-                        Read More
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Modal for full news content -->
-        <div class="modal fade" id="newsModal${news.id}" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">${news.title}</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="${news.image}" class="img-fluid mb-3" alt="${news.title}">
-                        <p class="text-muted">${formatDate(news.date)}</p>
-                        <p>${news.content}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `).join('');
+    if (!festivalData) return;
 
-    // Update footer contact info
-    const contact = festivalData.contact;
-    document.querySelector('.contact-info').innerHTML = `
-        <li>${contact.address}</li>
-        <li>${contact.city}, ${contact.country} ${contact.postalCode}</li>
-        <li>Phone: ${contact.phone}</li>
-        <li>Email: ${contact.email}</li>
-    `;
+    // Update news section
+    const newsContainer = document.querySelector('.news-grid');
+    if (newsContainer && festivalData.news && Array.isArray(festivalData.news)) {
+        const newsHTML = festivalData.news.map(news => `
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="${news.image}" alt="${news.title}">
+                </div>
+                <div class="news-content">
+                    <h3>${news.title}</h3>
+                    <p class="news-date">${news.date}</p>
+                    <p>${news.excerpt}</p>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </div>
+        `).join('');
+        newsContainer.innerHTML = newsHTML;
+    }
+
+    // Update contact info in footer
+    const footerContactInfo = document.querySelector('footer .contact-info');
+    if (footerContactInfo && festivalData.contact) {
+        footerContactInfo.innerHTML = `
+            <li><i class="fas fa-map-marker-alt"></i> ${festivalData.contact.address}</li>
+            <li><i class="fas fa-envelope"></i> ${festivalData.contact.email}</li>
+            <li><i class="fas fa-phone"></i> ${festivalData.contact.phone}</li>
+        `;
+    }
 
     // Update social media links
-    const socialLinks = document.querySelectorAll('.social-links a');
-    socialLinks[0].href = contact.socialMedia.facebook;
-    socialLinks[1].href = contact.socialMedia.instagram;
-    socialLinks[2].href = contact.socialMedia.twitter;
+    if (festivalData.social) {
+        const socialLinks = {
+            facebook: document.getElementById('facebook-link'),
+            twitter: document.getElementById('twitter-link'),
+            instagram: document.getElementById('instagram-link')
+        };
+
+        Object.keys(socialLinks).forEach(platform => {
+            if (socialLinks[platform] && festivalData.social[platform]) {
+                socialLinks[platform].href = festivalData.social[platform];
+            }
+        });
+    }
 
     // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 }
 
 // Format date to a more readable format

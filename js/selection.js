@@ -26,73 +26,80 @@ async function loadFestivalData() {
         document.querySelector('.page-header p').textContent = "Discover our curated selection of outstanding films.";
     }
 }
-// Update page content with loaded data
+
 function updatePageContent() {
-    // Update feature films grid
-    const featuresGrid = document.getElementById('features-grid');
-    featuresGrid.innerHTML = festivalData.selection.features.map(film => `
-        <div class="col-md-6 col-lg-4">
+    if (!festivalData) return;
+
+    // Update feature films section
+    const featureFilmsContainer = document.querySelector('#feature-films .films-grid');
+    if (featureFilmsContainer && festivalData.featureFilms && Array.isArray(festivalData.featureFilms)) {
+        const featureFilmsHTML = festivalData.featureFilms.map(film => `
             <div class="film-card">
                 <div class="film-image">
                     <img src="${film.image}" alt="${film.title}">
-                    <div class="film-overlay">
-                        <div class="film-details">
-                            <p><i class="fas fa-clock"></i> ${film.duration}</p>
-                            <p><i class="fas fa-globe"></i> ${film.country}</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="film-content">
-                    <span class="film-category">${film.category}</span>
-                    <h3 class="film-title">${film.title}</h3>
-                    <p class="film-director">Directed by ${film.director}</p>
-                    <p class="film-description">${film.description}</p>
+                    <h3>${film.title}</h3>
+                    <p class="director">Directed by ${film.director}</p>
+                    <p class="country">${film.country}</p>
+                    <p class="duration">${film.duration} min</p>
+                    <p class="description">${film.description}</p>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+        featureFilmsContainer.innerHTML = featureFilmsHTML;
+    }
 
-    // Update short films grid
-    const shortsGrid = document.getElementById('shorts-grid');
-    shortsGrid.innerHTML = festivalData.selection.shorts.map(film => `
-        <div class="col-md-6 col-lg-4">
+    // Update short films section
+    const shortFilmsContainer = document.querySelector('#short-films .films-grid');
+    if (shortFilmsContainer && festivalData.shortFilms && Array.isArray(festivalData.shortFilms)) {
+        const shortFilmsHTML = festivalData.shortFilms.map(film => `
             <div class="film-card">
                 <div class="film-image">
                     <img src="${film.image}" alt="${film.title}">
-                    <div class="film-overlay">
-                        <div class="film-details">
-                            <p><i class="fas fa-clock"></i> ${film.duration}</p>
-                            <p><i class="fas fa-globe"></i> ${film.country}</p>
-                        </div>
-                    </div>
                 </div>
                 <div class="film-content">
-                    <span class="film-category">${film.category}</span>
-                    <h3 class="film-title">${film.title}</h3>
-                    <p class="film-director">Directed by ${film.director}</p>
-                    <p class="film-description">${film.description}</p>
+                    <h3>${film.title}</h3>
+                    <p class="director">Directed by ${film.director}</p>
+                    <p class="country">${film.country}</p>
+                    <p class="duration">${film.duration} min</p>
+                    <p class="description">${film.description}</p>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+        shortFilmsContainer.innerHTML = shortFilmsHTML;
+    }
 
-    // Update footer contact info
-    const contact = festivalData.contact;
-    document.querySelector('.contact-info').innerHTML = `
-        <li>${contact.address}</li>
-        <li>${contact.city}, ${contact.country} ${contact.postalCode}</li>
-        <li>Phone: ${contact.phone}</li>
-        <li>Email: ${contact.email}</li>
-    `;
+    // Update contact info in footer
+    const footerContactInfo = document.querySelector('footer .contact-info');
+    if (footerContactInfo && festivalData.contact) {
+        footerContactInfo.innerHTML = `
+            <li><i class="fas fa-map-marker-alt"></i> ${festivalData.contact.address}</li>
+            <li><i class="fas fa-envelope"></i> ${festivalData.contact.email}</li>
+            <li><i class="fas fa-phone"></i> ${festivalData.contact.phone}</li>
+        `;
+    }
 
     // Update social media links
-    const socialLinks = document.querySelectorAll('.social-links a');
-    socialLinks[0].href = contact.socialMedia.facebook;
-    socialLinks[1].href = contact.socialMedia.instagram;
-    socialLinks[2].href = contact.socialMedia.twitter;
+    if (festivalData.social) {
+        const socialLinks = {
+            facebook: document.getElementById('facebook-link'),
+            twitter: document.getElementById('twitter-link'),
+            instagram: document.getElementById('instagram-link')
+        };
+
+        Object.keys(socialLinks).forEach(platform => {
+            if (socialLinks[platform] && festivalData.social[platform]) {
+                socialLinks[platform].href = festivalData.social[platform];
+            }
+        });
+    }
 
     // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 }
 
 // Initialize the page

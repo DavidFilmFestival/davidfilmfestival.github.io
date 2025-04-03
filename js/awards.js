@@ -26,45 +26,58 @@ async function loadFestivalData() {
         document.querySelector('.page-header p').textContent = "Celebrating excellence in filmmaking.";
     }
 }
-// Update page content with loaded data
+
 function updatePageContent() {
-    // Update awards grid
-    const awardsGrid = document.getElementById('awards-grid');
-    awardsGrid.innerHTML = festivalData.awards.map(award => `
-        <div class="col-md-6">
+    if (!festivalData) return;
+
+    // Update awards section
+    const awardsContainer = document.querySelector('.awards-grid');
+    if (awardsContainer && festivalData.awards && Array.isArray(festivalData.awards)) {
+        const awardsHTML = festivalData.awards.map(award => `
             <div class="award-card">
                 <div class="award-image">
-                    <img src="${award.image}" alt="${award.name}">
+                    <img src="${award.image}" alt="${award.title}">
                 </div>
                 <div class="award-content">
-                    <div class="award-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3 class="award-name">${award.name}</h3>
-                    <p class="award-category">${award.category}</p>
+                    <h3>${award.title}</h3>
                     <p class="award-description">${award.description}</p>
+                    <p class="award-winner">${award.winner}</p>
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+        awardsContainer.innerHTML = awardsHTML;
+    }
 
-    // Update footer contact info
-    const contact = festivalData.contact;
-    document.querySelector('.contact-info').innerHTML = `
-        <li>${contact.address}</li>
-        <li>${contact.city}, ${contact.country} ${contact.postalCode}</li>
-        <li>Phone: ${contact.phone}</li>
-        <li>Email: ${contact.email}</li>
-    `;
+    // Update contact info in footer
+    const footerContactInfo = document.querySelector('footer .contact-info');
+    if (footerContactInfo && festivalData.contact) {
+        footerContactInfo.innerHTML = `
+            <li><i class="fas fa-map-marker-alt"></i> ${festivalData.contact.address}</li>
+            <li><i class="fas fa-envelope"></i> ${festivalData.contact.email}</li>
+            <li><i class="fas fa-phone"></i> ${festivalData.contact.phone}</li>
+        `;
+    }
 
     // Update social media links
-    const socialLinks = document.querySelectorAll('.social-links a');
-    socialLinks[0].href = contact.socialMedia.facebook;
-    socialLinks[1].href = contact.socialMedia.instagram;
-    socialLinks[2].href = contact.socialMedia.twitter;
+    if (festivalData.social) {
+        const socialLinks = {
+            facebook: document.getElementById('facebook-link'),
+            twitter: document.getElementById('twitter-link'),
+            instagram: document.getElementById('instagram-link')
+        };
+
+        Object.keys(socialLinks).forEach(platform => {
+            if (socialLinks[platform] && festivalData.social[platform]) {
+                socialLinks[platform].href = festivalData.social[platform];
+            }
+        });
+    }
 
     // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 }
 
 // Initialize the page
