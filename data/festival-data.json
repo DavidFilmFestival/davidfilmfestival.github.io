@@ -12,7 +12,9 @@
             {"text": "Jury", "url": "jury.html"},
             {"text": "Events", "url": "events.html"},
             {"text": "Awards", "url": "awards.html"},
-            {"text": "Selection", "url": "selection.html"}
+            {"text": "Selection", "url": "selection.html"},
+            {"text": "About", "url": "about.html"},
+            {"text": "Contact", "url": "contact.html"}
         ]
     },
     "featured_films": {
@@ -88,14 +90,17 @@
     },
     "about": {
         "title": "About the Festival",
-        "description": "The International Film Festival is one of the world's most prestigious film events, bringing together extraordinary talent from across the globe. Since its inception, the festival has been a platform for groundbreaking cinema and emerging voices in filmmaking.",
-        "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26",
+        "description": "The International Film Festival (IFF) is a prestigious annual celebration of cinematic excellence, bringing together filmmakers, artists, and audiences from around the globe. Since its inception, our festival has been dedicated to discovering and promoting innovative voices in cinema, fostering cultural exchange, and creating an inclusive platform for diverse storytelling.",
         "details": [
-            "76th Edition",
-            "Over 200 Films",
-            "50+ Countries",
-            "12 Days of Cinema"
-        ]
+            "Founded in 2010, celebrating over a decade of cinematic excellence",
+            "Annual showcase of over 200 films from 50+ countries",
+            "Platform for emerging filmmakers and established masters",
+            "Competitive sections for feature films, short films, and documentaries",
+            "Special focus on innovative storytelling and groundbreaking cinematography",
+            "Industry networking events and masterclasses",
+            "Year-round educational programs and community outreach"
+        ],
+        "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
     },
     "jury": {
         "title": "Festival Jury 2024",
@@ -189,13 +194,13 @@
         ]
     },
     "contact": {
-        "address": "123 Festival Avenue, Los Angeles, CA 90001",
-        "email": "info@filmfestival.com",
-        "phone": "+1 (323) 555-0123",
+        "address": "123 Cinema Street, Movie City, MC 12345",
+        "phone": "+1 (555) 123-4567",
+        "email": "info@internationalfilmfestival.com",
         "social": {
-            "facebook": "https://facebook.com/filmfestival",
-            "instagram": "https://instagram.com/filmfestival",
-            "twitter": "https://twitter.com/filmfestival"
+            "facebook": "https://facebook.com/iff",
+            "instagram": "https://instagram.com/iff",
+            "twitter": "https://twitter.com/iff"
         }
     }
 } 

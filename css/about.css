@@ -1,0 +1,117 @@
+.page-header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 120px 0 60px;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.page-header .lead {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section {
+    background-color: #f8f9fa;
+    padding: 80px 0;
+}
+
+.about-content {
+    padding: 30px;
+}
+
+.about-text {
+    margin-bottom: 40px;
+}
+
+.about-text .description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.festival-details ul {
+    margin: 0;
+    padding: 0;
+}
+
+.festival-details li {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.festival-details li:before {
+    content: "•";
+    color: #dc3545;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.about-image {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 991.98px) {
+    .about-content {
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+
+    .about-image {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header {
+        padding: 100px 0 40px;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-header .lead {
+        font-size: 1.1rem;
+    }
+
+    .about-section {
+        padding: 40px 0;
+    }
+
+    .about-text .description {
+        font-size: 1rem;
+    }
+
+    .festival-details li {
+        font-size: 1rem;
+    }
+} 
