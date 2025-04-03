@@ -2,25 +2,18 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
-        // First try to load from the root path
-        let response = await fetch('/data/festival-data.json');
-        
+        // Try the direct relative path first
+        const response = await fetch('data/festival-data.json');
         if (!response.ok) {
-            // If that fails, try to construct the path based on the repository name
-            const pathParts = window.location.pathname.split('/');
-            const repoName = pathParts[1]; // This will be empty if served from root, or the repo name if served from GitHub Pages
-            const basePath = repoName ? `/${repoName}` : '';
-            response = await fetch(`${basePath}/data/festival-data.json`);
-            
-            if (!response.ok) {
-                throw new Error('Failed to load festival data');
-            }
+            throw new Error('Failed to load festival data');
         }
-        
         festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
+        // Add fallback data for testing
+        document.querySelector('.page-header h1').textContent = "About the Festival";
+        document.querySelector('.page-header p').textContent = "Celebrating the art of cinema and fostering creativity in filmmaking";
     }
 }
 
@@ -48,36 +41,47 @@ function updatePageContent() {
         aboutImage.alt = 'About the Festival';
     }
 
-    // Update contact information in footer
-    const contactInfo = document.querySelector('.contact-info');
-    if (contactInfo && festivalData.contact) {
-        contactInfo.innerHTML = `
-            <li><i class="fas fa-map-marker-alt me-2"></i>${festivalData.contact.address}</li>
-            <li><i class="fas fa-phone me-2"></i>${festivalData.contact.phone}</li>
-            <li><i class="fas fa-envelope me-2"></i>${festivalData.contact.email}</li>
+    // Update contact info in footer
+    const footerContactInfo = document.querySelector('footer .contact-info');
+    if (footerContactInfo && festivalData.contact) {
+        footerContactInfo.innerHTML = `
+            <li><i class="fas fa-map-marker-alt"></i> ${festivalData.contact.address}</li>
+            <li><i class="fas fa-envelope"></i> ${festivalData.contact.email}</li>
+            <li><i class="fas fa-phone"></i> ${festivalData.contact.phone}</li>
         `;
     }
 
     // Update social media links
-    if (festivalData.contact.social) {
-        const { facebook, instagram, twitter } = festivalData.contact.social;
-        if (facebook) document.getElementById('facebook-link').href = facebook;
-        if (instagram) document.getElementById('instagram-link').href = instagram;
-        if (twitter) document.getElementById('twitter-link').href = twitter;
+    if (festivalData.contact && festivalData.contact.social) {
+        const socialLinks = {
+            facebook: document.getElementById('facebook-link'),
+            twitter: document.getElementById('twitter-link'),
+            instagram: document.getElementById('instagram-link')
+        };
+
+        Object.keys(socialLinks).forEach(platform => {
+            if (socialLinks[platform] && festivalData.contact.social[platform]) {
+                socialLinks[platform].href = festivalData.contact.social[platform];
+            }
+        });
     }
 
     // Update copyright year
-    const yearSpan = document.getElementById('year');
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
 }
 
-// Initialize page
+// Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     loadFestivalData();
+    
+    // Add fade-in animation to elements when they come into view
+    const observerOptions = {
+        threshold: 0.1
+    };
 
-    // Set up fade-in animations
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -85,15 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.1
-    });
+    }, observerOptions);
 
-    // Observe elements for fade-in animation
-    document.querySelectorAll('.about-content, .about-image').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Observe all sections and content blocks
+    document.querySelectorAll('.about-content, .about-image').forEach(element => {
+        observer.observe(element);
     });
 }); 

@@ -20,21 +20,35 @@ async function loadFestivalData() {
 
 // Update page content with loaded data
 function updatePageContent() {
-    if (!festivalData) return;
+    if (!festivalData || !festivalData.jury) return;
+
+    // Update page header if there's a title and description
+    if (festivalData.jury.title) {
+        document.querySelector('.page-header h1').textContent = festivalData.jury.title;
+    }
+    if (festivalData.jury.description) {
+        document.querySelector('.page-header .lead').textContent = festivalData.jury.description;
+    }
 
     // Update jury section
-    const juryContainer = document.querySelector('.jury-grid');
-    if (juryContainer && festivalData.jury && Array.isArray(festivalData.jury.members)) {
+    const juryContainer = document.getElementById('jury-grid');
+    if (juryContainer && Array.isArray(festivalData.jury.members)) {
         const juryHTML = festivalData.jury.members.map(member => `
-            <div class="jury-card">
-                <div class="jury-image">
-                    <img src="${member.image}" alt="${member.name}">
-                </div>
-                <div class="jury-content">
-                    <h3>${member.name}</h3>
-                    <p class="jury-role">${member.role}</p>
-                    <p class="jury-country">${member.country}</p>
-                    <p class="jury-bio">${member.bio}</p>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${member.image}" class="img-fluid rounded-start h-100" alt="${member.name}" style="object-fit: cover;">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">${member.name}</h3>
+                                <h5 class="card-subtitle mb-2 text-muted">${member.role}</h5>
+                                <p class="card-text"><small class="text-muted">${member.country}</small></p>
+                                <p class="card-text">${member.bio}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -53,17 +67,12 @@ function updatePageContent() {
 
     // Update social media links
     if (festivalData.contact && festivalData.contact.social) {
-        const socialLinks = {
-            facebook: document.getElementById('facebook-link'),
-            twitter: document.getElementById('twitter-link'),
-            instagram: document.getElementById('instagram-link')
-        };
-
-        Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.contact.social[platform]) {
-                socialLinks[platform].href = festivalData.contact.social[platform];
-            }
-        });
+        const socialLinks = document.querySelectorAll('.social-links a');
+        if (socialLinks.length >= 3) {
+            socialLinks[0].href = festivalData.contact.social.facebook;
+            socialLinks[1].href = festivalData.contact.social.instagram;
+            socialLinks[2].href = festivalData.contact.social.twitter;
+        }
     }
 
     // Update copyright year
@@ -92,7 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     // Observe all sections and cards
-    document.querySelectorAll('section, .jury-card').forEach(element => {
+    document.querySelectorAll('.card').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
 }); 

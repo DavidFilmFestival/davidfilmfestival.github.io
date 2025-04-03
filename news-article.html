@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selection - International Film Festival</title>
+    <title>News - International Film Festival</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/selection.css">
+    <link rel="stylesheet" href="css/news.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Google Fonts -->
@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="news.html">News</a>
+                        <a class="nav-link active" href="news.html">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="jury.html">Jury</a>
@@ -37,7 +37,7 @@
                         <a class="nav-link" href="awards.html">Awards</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="selection.html">Selection</a>
+                        <a class="nav-link" href="selection.html">Selection</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -50,23 +50,48 @@
         </div>
     </nav>
 
-    <!-- Selection Header -->
-    <section class="page-header py-5">
+    <!-- Article Content -->
+    <article class="py-5">
         <div class="container">
-            <h1 class="text-center mb-4">Official Selection</h1>
-            <p class="text-center lead">Discover this year's carefully curated selection of films</p>
-        </div>
-    </section>
+            <nav aria-label="breadcrumb" class="mt-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="news.html">News</a></li>
+                    <li class="breadcrumb-item active article-category" aria-current="page">Category</li>
+                </ol>
+            </nav>
+            
+            <header class="article-header mb-5">
+                <h1 class="article-title display-4 mb-3">Article Title</h1>
+                <div class="article-meta">
+                    <span class="article-date me-3"><i class="far fa-calendar me-2"></i><span class="date-text">Date</span></span>
+                    <span class="article-author"><i class="far fa-user me-2"></i><span class="author-text">Author</span></span>
+                </div>
+            </header>
 
-    <!-- Featured Films -->
-    <section class="py-5">
-        <div class="container">
-            <h2 class="section-title text-center mb-5">Featured Films</h2>
-            <div class="row g-4" id="feature-films">
-                <!-- Feature films will be loaded from JSON -->
+            <div class="article-featured-image mb-5">
+                <img src="" alt="" class="img-fluid rounded">
+            </div>
+
+            <div class="article-content">
+                <!-- Content will be loaded dynamically -->
+            </div>
+
+            <div class="article-navigation mt-5 pt-4 border-top">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="prev-article">
+                            <!-- Previous article link will be added dynamically -->
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="next-article">
+                            <!-- Next article link will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </article>
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-5">
@@ -110,6 +135,6 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
-    <script src="js/selection.js"></script>
+    <script src="js/news-article.js"></script>
 </body>
 </html> 

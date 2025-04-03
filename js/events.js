@@ -17,52 +17,67 @@ async function loadFestivalData() {
         document.querySelector('.page-header p').textContent = "Explore our exciting lineup of events.";
     }
 }
-// Update page content with loaded data
+
 function updatePageContent() {
-    // Update events timeline
-    const eventsTimeline = document.getElementById('events-timeline');
-    eventsTimeline.innerHTML = festivalData.events.map((event, index) => `
-        <div class="timeline-item ${index % 2 === 0 ? 'left' : 'right'}">
-            <div class="timeline-content">
-                <div class="event-card">
-                    <img src="${event.image}" alt="${event.title}" class="event-image">
-                    <div class="event-info">
-                        <h3 class="event-title">${event.title}</h3>
-                        <div class="event-details">
-                            <p class="event-date"><i class="far fa-calendar"></i> ${formatDate(event.date)}</p>
-                            <p class="event-time"><i class="far fa-clock"></i> ${event.time}</p>
-                            <p class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+    if (!festivalData || !festivalData.events) return;
+
+    // Update page header if there's a title
+    if (festivalData.events.title) {
+        document.querySelector('.page-header h1').textContent = festivalData.events.title;
+    }
+
+    // Update events section
+    const eventsContainer = document.getElementById('events-grid');
+    if (eventsContainer && Array.isArray(festivalData.events.categories)) {
+        const eventsHTML = festivalData.events.categories.map(category => `
+            <div class="col-12 mb-5">
+                <h2 class="section-title mb-4">${category.name}</h2>
+                <div class="row g-4">
+                    ${category.events.map(event => `
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="card-title">${event.title}</h3>
+                                    <div class="event-details mb-3">
+                                        <p class="mb-2"><i class="far fa-calendar"></i> ${event.dates}</p>
+                                        <p class="mb-2"><i class="fas fa-map-marker-alt"></i> ${event.location}</p>
+                                    </div>
+                                    <p class="card-text">${event.description}</p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="event-description">${event.description}</p>
-                    </div>
+                    `).join('')}
                 </div>
             </div>
-        </div>
-    `).join('');
+        `).join('');
+        eventsContainer.innerHTML = eventsHTML;
+    }
 
-    // Update footer contact info
-    const contact = festivalData.contact;
-    document.querySelector('.contact-info').innerHTML = `
-        <li>${contact.address}</li>
-        <li>${contact.city}, ${contact.country} ${contact.postalCode}</li>
-        <li>Phone: ${contact.phone}</li>
-        <li>Email: ${contact.email}</li>
-    `;
+    // Update contact info in footer
+    const footerContactInfo = document.querySelector('footer .contact-info');
+    if (footerContactInfo && festivalData.contact) {
+        footerContactInfo.innerHTML = `
+            <li><i class="fas fa-map-marker-alt"></i> ${festivalData.contact.address}</li>
+            <li><i class="fas fa-envelope"></i> ${festivalData.contact.email}</li>
+            <li><i class="fas fa-phone"></i> ${festivalData.contact.phone}</li>
+        `;
+    }
 
     // Update social media links
-    const socialLinks = document.querySelectorAll('.social-links a');
-    socialLinks[0].href = contact.socialMedia.facebook;
-    socialLinks[1].href = contact.socialMedia.instagram;
-    socialLinks[2].href = contact.socialMedia.twitter;
+    if (festivalData.contact && festivalData.contact.social) {
+        const socialLinks = document.querySelectorAll('.social-links a');
+        if (socialLinks.length >= 3) {
+            socialLinks[0].href = festivalData.contact.social.facebook;
+            socialLinks[1].href = festivalData.contact.social.instagram;
+            socialLinks[2].href = festivalData.contact.social.twitter;
+        }
+    }
 
     // Update copyright year
-    document.getElementById('year').textContent = new Date().getFullYear();
-}
-
-// Format date to a more readable format
-function formatDate(dateString) {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
 }
 
 // Initialize the page
@@ -83,8 +98,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe all sections and timeline items
-    document.querySelectorAll('section, .timeline-item').forEach(element => {
+    // Observe all cards
+    document.querySelectorAll('.card').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
 }); 

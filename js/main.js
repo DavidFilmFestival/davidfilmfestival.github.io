@@ -14,7 +14,7 @@ async function loadFestivalData() {
     } catch (error) {
         console.error('Error loading festival data:', error);
         // Add fallback data for testing
-        document.getElementById('festival-title').textContent = "International Film Festival 2024";
+        document.getElementById('festival-title').textContent = "International Film Festival 2025";
         document.getElementById('festival-subtitle').textContent = "Celebrating the Art of Cinema";
         
         // Update contact info with fallback data

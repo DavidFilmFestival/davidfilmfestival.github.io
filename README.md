@@ -119,4 +119,189 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## 📞 Support
 
-For support, please open an issue in the GitHub repository or contact us through the website's contact form. 
+For support, please open an issue in the GitHub repository or contact us through the website's contact form.
+
+## Project Structure
+
+```
+film_website/
+├── css/
+│   ├── style.css
+│   ├── news.css
+│   └── awards.css
+├── js/
+│   ├── news.js
+│   ├── news-article.js
+│   ├── jury.js
+│   ├── events.js
+│   ├── awards.js
+│   └── selection.js
+├── data/
+│   └── festival-data.json
+├── images/
+│   ├── films/
+│   ├── jury/
+│   ├── awards/
+│   ├── news/
+│   └── about/
+├── index.html
+├── news.html
+├── news-article.html
+├── jury.html
+├── events.html
+├── awards.html
+├── selection.html
+├── about.html
+└── contact.html
+```
+
+## Data Management
+
+The website's content is managed through the `data/festival-data.json` file. Here's how to update different sections:
+
+### News Articles
+To add or update news articles, modify the `news.articles` array in festival-data.json. Each article should follow this structure:
+```json
+{
+    "title": "Article Title",
+    "date": "YYYY-MM-DD",
+    "summary": "Brief summary of the article",
+    "image": "path/to/image.jpg",
+    "slug": "article-title-slug",
+    "author": "Author Name",
+    "category": "Article Category",
+    "content": [
+        {
+            "type": "paragraph",
+            "text": "Paragraph text"
+        },
+        {
+            "type": "subheading",
+            "text": "Subheading text"
+        },
+        {
+            "type": "image",
+            "url": "path/to/image.jpg",
+            "caption": "Image caption"
+        },
+        {
+            "type": "list",
+            "items": [
+                "List item 1",
+                "List item 2"
+            ]
+        }
+    ]
+}
+```
+
+### Featured Films
+Update the `featured_films.films` array with film information:
+```json
+{
+    "title": "Film Title",
+    "director": "Director Name",
+    "country": "Country of Origin",
+    "duration": "Duration in minutes",
+    "category": "Film Category",
+    "description": "Brief film description",
+    "image": "path/to/film-image.jpg"
+}
+```
+
+### Jury Members
+Modify the `jury.members` array for jury information:
+```json
+{
+    "name": "Jury Member Name",
+    "role": "Role in Jury",
+    "country": "Country",
+    "bio": "Brief biography",
+    "image": "path/to/jury-member-image.jpg"
+}
+```
+
+### Events
+Update the `events.categories` array to organize events by category:
+```json
+{
+    "name": "Category Name",
+    "events": [
+        {
+            "title": "Event Title",
+            "location": "Event Location",
+            "dates": "Event Dates",
+            "description": "Event description"
+        }
+    ]
+}
+```
+
+### Awards
+Modify the `awards.categories` array for award information:
+```json
+{
+    "name": "Award Category",
+    "description": "Award description",
+    "image": "path/to/award-image.jpg"
+}
+```
+
+### Contact Information
+Update the `contact` section with current contact details:
+```json
+{
+    "address": "Full Address",
+    "phone": "Phone Number",
+    "email": "Email Address",
+    "social": {
+        "facebook": "Facebook URL",
+        "instagram": "Instagram URL",
+        "twitter": "Twitter URL"
+    }
+}
+```
+
+## Image Requirements
+
+1. All images should be optimized for web use
+2. Recommended sizes:
+   - News article featured images: 1200x800px
+   - Film posters: 800x1200px
+   - Jury member photos: 600x800px
+   - Award images: 800x800px
+   - Event images: 1200x800px
+
+3. Image formats:
+   - Use .jpg for photographs
+   - Use .png for logos and graphics with transparency
+   - Use .webp for optimized web images (with fallbacks)
+
+4. File naming convention:
+   - Use lowercase letters
+   - Replace spaces with hyphens
+   - Include descriptive terms
+   - Example: `festival-opening-ceremony-2025.jpg`
+
+## Development
+
+1. Clone the repository
+2. Open index.html in a web browser
+3. Make changes to HTML, CSS, or JavaScript files
+4. Update festival-data.json with new content
+5. Test all pages and functionality
+6. Commit and push changes
+
+## Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Opera (latest)
+
+## Dependencies
+
+- Bootstrap 5.3.2
+- Font Awesome 6.5.1
+- Google Fonts (Playfair Display, Inter) 

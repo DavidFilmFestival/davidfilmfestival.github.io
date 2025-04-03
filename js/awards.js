@@ -19,19 +19,24 @@ async function loadFestivalData() {
 }
 
 function updatePageContent() {
-    if (!festivalData) return;
+    if (!festivalData || !festivalData.awards) return;
+
+    // Update page header if there's a title
+    if (festivalData.awards.title) {
+        document.querySelector('.page-header h1').textContent = festivalData.awards.title;
+    }
 
     // Update awards section
-    const awardsContainer = document.querySelector('.awards-grid');
-    if (awardsContainer && festivalData.awards && Array.isArray(festivalData.awards.categories)) {
+    const awardsContainer = document.getElementById('awards-grid');
+    if (awardsContainer && Array.isArray(festivalData.awards.categories)) {
         const awardsHTML = festivalData.awards.categories.map(award => `
-            <div class="award-card">
-                <div class="award-image">
-                    <img src="${award.image}" alt="${award.name}">
-                </div>
-                <div class="award-content">
-                    <h3>${award.name}</h3>
-                    <p class="award-description">${award.description}</p>
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <img src="${award.image}" class="card-img-top" alt="${award.name}">
+                    <div class="card-body">
+                        <h3 class="card-title">${award.name}</h3>
+                        <p class="card-text">${award.description}</p>
+                    </div>
                 </div>
             </div>
         `).join('');
@@ -50,17 +55,12 @@ function updatePageContent() {
 
     // Update social media links
     if (festivalData.contact && festivalData.contact.social) {
-        const socialLinks = {
-            facebook: document.getElementById('facebook-link'),
-            twitter: document.getElementById('twitter-link'),
-            instagram: document.getElementById('instagram-link')
-        };
-
-        Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.contact.social[platform]) {
-                socialLinks[platform].href = festivalData.contact.social[platform];
-            }
-        });
+        const socialLinks = document.querySelectorAll('.social-links a');
+        if (socialLinks.length >= 3) {
+            socialLinks[0].href = festivalData.contact.social.facebook;
+            socialLinks[1].href = festivalData.contact.social.instagram;
+            socialLinks[2].href = festivalData.contact.social.twitter;
+        }
     }
 
     // Update copyright year
@@ -88,8 +88,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    // Observe all sections and award cards
-    document.querySelectorAll('section, .award-card').forEach(element => {
+    // Observe all cards
+    document.querySelectorAll('.card').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(element);
     });
 }); 

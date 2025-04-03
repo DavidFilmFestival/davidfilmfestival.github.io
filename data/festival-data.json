@@ -1,12 +1,12 @@
 {
     "festival": {
-        "name": "International Film Festival 2024",
+        "name": "International Film Festival 2025",
         "subtitle": "Celebrating the Art of Cinema",
-        "dates": "May 15-26, 2024",
+        "dates": "May 15-26, 2025",
         "location": "Los Angeles, California"
     },
     "navigation": {
-        "brand": "IFF",
+        "brand": "ISFF",
         "links": [
             {"text": "News", "url": "news.html"},
             {"text": "Jury", "url": "jury.html"},
@@ -21,31 +21,31 @@
         "title": "Featured Films",
         "films": [
             {
-                "title": "The Last Symphony",
-                "director": "Maria Rodriguez",
-                "country": "Spain",
+                "title": "The Last Journey",
+                "director": "Sarah Chen",
+                "country": "China",
                 "duration": "120 min",
-                "category": "Competition",
-                "image": "https://images.unsplash.com/photo-1512053459797-38c3a066cabd",
-                "description": "A powerful story about a composer's final masterpiece"
+                "category": "Drama",
+                "description": "A touching story about family bonds and cultural heritage.",
+                "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
             },
             {
                 "title": "Urban Dreams",
-                "director": "James Chen",
-                "country": "Hong Kong",
+                "director": "Michael Roberts",
+                "country": "USA",
                 "duration": "95 min",
-                "category": "Un Certain Regard",
-                "image": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df",
-                "description": "A visual journey through metropolitan life"
+                "category": "Documentary",
+                "description": "An exploration of city life and human connections.",
+                "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
             },
             {
-                "title": "The Silent Echo",
-                "director": "Anna Kowalski",
-                "country": "Poland",
+                "title": "Echoes of Tomorrow",
+                "director": "Elena Kovac",
+                "country": "Croatia",
                 "duration": "110 min",
-                "category": "Competition",
-                "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1",
-                "description": "An intimate portrait of a family's unspoken truths"
+                "category": "Sci-Fi",
+                "description": "A visionary tale of future society and human potential.",
+                "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1925&q=80"
             }
         ]
     },
@@ -53,7 +53,7 @@
         "title": "Festival Schedule",
         "days": [
             {
-                "date": "May 15, 2024",
+                "date": "May 15, 2025",
                 "events": [
                     {
                         "time": "19:00",
@@ -70,7 +70,7 @@
                 ]
             },
             {
-                "date": "May 16, 2024",
+                "date": "May 16, 2025",
                 "events": [
                     {
                         "time": "14:00",
@@ -90,42 +90,36 @@
     },
     "about": {
         "title": "About the Festival",
-        "description": "The International Film Festival (IFF) is a prestigious annual celebration of cinematic excellence, bringing together filmmakers, artists, and audiences from around the globe. Since its inception, our festival has been dedicated to discovering and promoting innovative voices in cinema, fostering cultural exchange, and creating an inclusive platform for diverse storytelling.",
+        "description": "The International Student Film Festival (ISFF) is a student-led annual event that celebrates the creativity and talent of young filmmakers. Founded in 2024 by students at [Your High School Name], the festival provides a supportive platform for student storytellers to showcase their work, connect with peers, and explore the art of filmmaking. With a focus on originality, collaboration, and community engagement, ISFF aims to inspire the next generation of creators through film screenings, workshops, and educational experiences.",
         "details": [
-            "Founded in 2010, celebrating over a decade of cinematic excellence",
-            "Annual showcase of over 200 films from 50+ countries",
-            "Platform for emerging filmmakers and established masters",
-            "Competitive sections for feature films, short films, and documentaries",
-            "Special focus on innovative storytelling and groundbreaking cinematography",
-            "Industry networking events and masterclasses",
-            "Year-round educational programs and community outreach"
+            "Founded in 2024 by student filmmakers at [Your High School Name]",
+            "Showcasing a curated selection of short films created by students from local schools and international youth programs",
+            "A creative platform for young storytellers to share their voice and vision",
+            "Includes competitive categories for narrative shorts, documentaries, and experimental films",
+            "Highlights originality, creative storytelling, and student-driven production",
+            "Features student-led workshops, guest speakers, and film critique sessions",
+            "Encourages community involvement through screenings and collaborative projects",
+            "Co-founded by high school student David Zheng, whose initiative and passion for film helped bring the festival to life"
         ],
         "image": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
     },
     "jury": {
-        "title": "Festival Jury 2024",
+        "title": "Festival Jury 2025",
         "description": "Distinguished professionals from the world of cinema",
         "members": [
             {
-                "name": "David Lynch",
-                "role": "Jury President",
-                "country": "USA",
-                "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-                "bio": "Acclaimed director and screenwriter"
+                "name": "David Anderson",
+                "role": "Head Juror",
+                "country": "United States",
+                "bio": "Award-winning director with over 20 years of experience in international cinema.",
+                "image": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
             },
             {
-                "name": "Sofia Coppola",
+                "name": "Sophie Laurent",
                 "role": "Jury Member",
-                "country": "USA",
-                "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-                "bio": "Award-winning filmmaker"
-            },
-            {
-                "name": "Wong Kar-wai",
-                "role": "Jury Member",
-                "country": "Hong Kong",
-                "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
-                "bio": "Visionary director"
+                "country": "France",
+                "bio": "Renowned film critic and festival curator.",
+                "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
             }
         ]
     },
@@ -133,19 +127,14 @@
         "title": "Festival Awards",
         "categories": [
             {
-                "name": "Palme d'Or",
-                "description": "The highest honor awarded at the festival",
-                "image": "https://images.unsplash.com/photo-1584834647734-37c5b7840051"
+                "name": "Best Feature Film",
+                "description": "Celebrating outstanding achievement in feature-length filmmaking.",
+                "image": "https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
             },
             {
-                "name": "Grand Prix",
-                "description": "The second most prestigious award",
-                "image": "https://images.unsplash.com/photo-1586861203927-800a5acdcc4d"
-            },
-            {
-                "name": "Jury Prize",
-                "description": "Special recognition from the jury",
-                "image": "https://images.unsplash.com/photo-1578927445866-ad9c931d3564"
+                "name": "Best Documentary",
+                "description": "Recognizing excellence in documentary filmmaking.",
+                "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
             }
         ]
     },
@@ -153,16 +142,142 @@
         "title": "Latest News",
         "articles": [
             {
-                "title": "Jury President Announcement",
-                "date": "2024-01-15",
-                "image": "https://images.unsplash.com/photo-1485846234645-a62644f84728",
-                "summary": "David Lynch named Jury President for the 76th edition"
+                "title": "Festival Opening Night Announced",
+                "date": "2025-03-01",
+                "summary": "Join us for a spectacular opening night featuring award-winning films and special guests.",
+                "image": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                "slug": "festival-opening-night-announced",
+                "author": "Sarah Thompson",
+                "category": "Announcements",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "We are thrilled to announce the details of our grand opening night for the International Film Festival 2025. The evening promises to be a celebration of cinematic excellence, bringing together filmmakers, artists, and cinema enthusiasts from around the globe."
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Opening Film"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "The festival will open with the world premiere of 'The Last Symphony' by acclaimed director Maria Rodriguez. This powerful drama explores the intersection of music, memory, and family bonds against the backdrop of a changing world."
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Special Guests"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "We are honored to welcome Oscar-winning director Christopher Nolan as our special guest for the opening ceremony. He will be joined by a distinguished panel of international filmmakers and artists."
+                    },
+                    {
+                        "type": "image",
+                        "url": "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3",
+                        "caption": "The Grand Theater will host our opening night ceremony"
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Schedule of Events"
+                    },
+                    {
+                        "type": "list",
+                        "items": [
+                            "6:00 PM - Red Carpet Arrivals",
+                            "7:00 PM - Opening Ceremony",
+                            "7:30 PM - Keynote Address by Christopher Nolan",
+                            "8:00 PM - World Premiere: 'The Last Symphony'",
+                            "10:30 PM - Opening Night Reception"
+                        ]
+                    }
+                ]
             },
             {
-                "title": "Official Selection Revealed",
-                "date": "2024-03-01",
-                "image": "https://images.unsplash.com/photo-1485846147915-69f12fbd03b9",
-                "summary": "21 films in competition for the Palme d'Or"
+                "title": "New Jury Members Revealed",
+                "date": "2025-02-28",
+                "summary": "Distinguished filmmakers join our international jury panel.",
+                "image": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+                "slug": "new-jury-members-revealed",
+                "author": "Michael Chen",
+                "category": "Jury",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "The International Film Festival is proud to announce our distinguished jury panel for the 2025 edition. This year's jury brings together some of the most innovative and respected voices in contemporary cinema."
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Meet the Jury"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Leading the jury is acclaimed director David Anderson, whose recent film 'Beyond the Horizon' received worldwide critical acclaim. He is joined by French film critic Sophie Laurent and award-winning cinematographer James Wong."
+                    },
+                    {
+                        "type": "image",
+                        "url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+                        "caption": "Jury President David Anderson"
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Jury Categories"
+                    },
+                    {
+                        "type": "list",
+                        "items": [
+                            "Feature Film Competition",
+                            "Short Film Selection",
+                            "Documentary Showcase",
+                            "New Voices Competition",
+                            "Innovation in Cinema Award"
+                        ]
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "The jury will evaluate films based on artistic merit, technical excellence, innovative storytelling, and contribution to global cinema dialogue."
+                    }
+                ]
+            },
+            {
+                "title": "Focus on Asian Cinema",
+                "date": "2025-02-25",
+                "summary": "This year's festival spotlights the vibrant film industry of Asia with special screenings and events.",
+                "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3",
+                "slug": "focus-on-asian-cinema",
+                "author": "Emily Wong",
+                "category": "Special Features",
+                "content": [
+                    {
+                        "type": "paragraph",
+                        "text": "The 2025 edition of our festival will feature a special spotlight on Asian cinema, showcasing the rich diversity and creative innovation emerging from the region."
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Featured Films"
+                    },
+                    {
+                        "type": "paragraph",
+                        "text": "Our Asian cinema showcase includes over 20 films from countries including Japan, South Korea, China, Thailand, and India. From intimate personal narratives to grand historical epics, these selections represent the breadth and depth of Asian storytelling."
+                    },
+                    {
+                        "type": "image",
+                        "url": "https://images.unsplash.com/photo-1485846234645-a62644f84728",
+                        "caption": "Scene from 'The Last Journey' by Sarah Chen"
+                    },
+                    {
+                        "type": "subheading",
+                        "text": "Special Events"
+                    },
+                    {
+                        "type": "list",
+                        "items": [
+                            "Asian Cinema Masterclass with Wong Kar-wai",
+                            "Panel Discussion: The Future of Asian Film Industry",
+                            "Traditional Arts & Cinema Workshop",
+                            "Asian Street Food Festival",
+                            "Cultural Exchange Reception"
+                        ]
+                    }
+                ]
             }
         ]
     },
