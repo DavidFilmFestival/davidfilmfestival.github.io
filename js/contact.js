@@ -3,14 +3,37 @@ let festivalData = null;
 // Fetch and load festival data
 async function loadFestivalData() {
     try {
-        const response = await fetch('../data/festival-data.json');
+        const response = await fetch('data/festival-data.json');
         if (!response.ok) {
-            throw new Error('Failed to load festival data');
+            // If direct fetch fails, try with repository name
+            const pathSegments = window.location.pathname.split('/');
+            const repoName = pathSegments[1];
+            const baseUrl = repoName ? `/${repoName}` : '';
+            const secondResponse = await fetch(`${baseUrl}/data/festival-data.json`);
+            
+            if (!secondResponse.ok) {
+                throw new Error('Failed to load festival data');
+            }
+            festivalData = await secondResponse.json();
+        } else {
+            festivalData = await response.json();
         }
-        festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
+        // Add fallback data for testing
+        document.querySelector('.page-header h1').textContent = "Contact Us";
+        document.querySelector('.page-header p').textContent = "Get in touch with us.";
+        
+        // Update contact info with fallback data
+        const contactInfo = document.querySelector('.contact-info');
+        if (contactInfo) {
+            contactInfo.innerHTML = `
+                <li><i class="fas fa-map-marker-alt"></i> 123 Festival Avenue, Los Angeles, CA 90001</li>
+                <li><i class="fas fa-envelope"></i> info@filmfestival.com</li>
+                <li><i class="fas fa-phone"></i> +1 (323) 555-0123</li>
+            `;
+        }
     }
 }
 

@@ -3,19 +3,27 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
-        // Get the repository name from the URL path
-        const pathSegments = window.location.pathname.split('/');
-        const repoName = pathSegments[1]; // This will be 'home' or whatever name you chose
-        const baseUrl = repoName ? `/${repoName}` : '';
-            
-        const response = await fetch(`${baseUrl}/data/festival-data.json`);
+        const response = await fetch('data/festival-data.json');
         if (!response.ok) {
-            throw new Error('Failed to load festival data');
+            // If direct fetch fails, try with repository name
+            const pathSegments = window.location.pathname.split('/');
+            const repoName = pathSegments[1];
+            const baseUrl = repoName ? `/${repoName}` : '';
+            const secondResponse = await fetch(`${baseUrl}/data/festival-data.json`);
+            
+            if (!secondResponse.ok) {
+                throw new Error('Failed to load festival data');
+            }
+            festivalData = await secondResponse.json();
+        } else {
+            festivalData = await response.json();
         }
-        festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
+        // Add fallback data for testing
+        document.querySelector('.page-header h1').textContent = "Festival Awards";
+        document.querySelector('.page-header p').textContent = "Celebrating excellence in filmmaking.";
     }
 }
 // Update page content with loaded data
