@@ -3,14 +3,21 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
-        const response = await fetch('/data/festival-data.json');
+        // Get the repository name from the URL path
+        const pathSegments = window.location.pathname.split('/');
+        const repoName = pathSegments[1]; // This will be 'home' or whatever name you chose
+        const baseUrl = repoName ? `/${repoName}` : '';
+            
+        const response = await fetch(`${baseUrl}/data/festival-data.json`);
+        if (!response.ok) {
+            throw new Error('Failed to load festival data');
+        }
         festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
     }
 }
-
 // Update page content with loaded data
 function updatePageContent() {
     // Update films grid
