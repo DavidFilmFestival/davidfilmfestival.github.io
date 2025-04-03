@@ -32,17 +32,18 @@ function updatePageContent() {
 
     // Update feature films section
     const featureFilmsContainer = document.querySelector('#feature-films .films-grid');
-    if (featureFilmsContainer && festivalData.featureFilms && Array.isArray(festivalData.featureFilms)) {
-        const featureFilmsHTML = festivalData.featureFilms.map(film => `
+    if (featureFilmsContainer && festivalData.featured_films && Array.isArray(festivalData.featured_films.films)) {
+        const featureFilmsHTML = festivalData.featured_films.films.map(film => `
             <div class="film-card">
                 <div class="film-image">
                     <img src="${film.image}" alt="${film.title}">
                 </div>
                 <div class="film-content">
                     <h3>${film.title}</h3>
+                    <p class="film-category">${film.category}</p>
                     <p class="director">Directed by ${film.director}</p>
                     <p class="country">${film.country}</p>
-                    <p class="duration">${film.duration} min</p>
+                    <p class="duration">${film.duration}</p>
                     <p class="description">${film.description}</p>
                 </div>
             </div>
@@ -81,7 +82,7 @@ function updatePageContent() {
     }
 
     // Update social media links
-    if (festivalData.social) {
+    if (festivalData.contact && festivalData.contact.social) {
         const socialLinks = {
             facebook: document.getElementById('facebook-link'),
             twitter: document.getElementById('twitter-link'),
@@ -89,8 +90,8 @@ function updatePageContent() {
         };
 
         Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.social[platform]) {
-                socialLinks[platform].href = festivalData.social[platform];
+            if (socialLinks[platform] && festivalData.contact.social[platform]) {
+                socialLinks[platform].href = festivalData.contact.social[platform];
             }
         });
     }

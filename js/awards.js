@@ -32,16 +32,15 @@ function updatePageContent() {
 
     // Update awards section
     const awardsContainer = document.querySelector('.awards-grid');
-    if (awardsContainer && festivalData.awards && Array.isArray(festivalData.awards)) {
-        const awardsHTML = festivalData.awards.map(award => `
+    if (awardsContainer && festivalData.awards && Array.isArray(festivalData.awards.categories)) {
+        const awardsHTML = festivalData.awards.categories.map(award => `
             <div class="award-card">
                 <div class="award-image">
-                    <img src="${award.image}" alt="${award.title}">
+                    <img src="${award.image}" alt="${award.name}">
                 </div>
                 <div class="award-content">
-                    <h3>${award.title}</h3>
+                    <h3>${award.name}</h3>
                     <p class="award-description">${award.description}</p>
-                    <p class="award-winner">${award.winner}</p>
                 </div>
             </div>
         `).join('');
@@ -59,7 +58,7 @@ function updatePageContent() {
     }
 
     // Update social media links
-    if (festivalData.social) {
+    if (festivalData.contact && festivalData.contact.social) {
         const socialLinks = {
             facebook: document.getElementById('facebook-link'),
             twitter: document.getElementById('twitter-link'),
@@ -67,8 +66,8 @@ function updatePageContent() {
         };
 
         Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.social[platform]) {
-                socialLinks[platform].href = festivalData.social[platform];
+            if (socialLinks[platform] && festivalData.contact.social[platform]) {
+                socialLinks[platform].href = festivalData.contact.social[platform];
             }
         });
     }
