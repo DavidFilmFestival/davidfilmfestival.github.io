@@ -157,7 +157,7 @@ film_website/
 
 ## Data Management
 
-The website's content is managed through the `data/festival-data.json` file. Here's how to update different sections:
+The website's content is managed through the `data/festival-data.json` file. Here's how to update dISFFerent sections:
 
 ### News Articles
 To add or update news articles, modify the `news.articles` array in festival-data.json. Each article should follow this structure:
