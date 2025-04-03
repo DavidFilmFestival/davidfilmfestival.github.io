@@ -1,0 +1,308 @@
+/* General Styles */
+:root {
+    --primary-color: #000000;
+    --secondary-color: #e50914;
+    --accent-color: #ffd700;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --gray-color: #f8f9fa;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    padding-top: 76px;
+    color: var(--dark-color);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--accent-color) !important;
+    font-weight: 700;
+}
+
+.nav-link {
+    color: var(--light-color) !important;
+    transition: color 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Hero Section */
+.hero {
+    height: calc(100vh - 76px);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-color);
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(transparent, var(--dark-color));
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1.5rem;
+    font-size: 4rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Schedule Section */
+.schedule-timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.schedule-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: var(--accent-color);
+}
+
+.schedule-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: var(--light-color);
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+}
+
+/* Film Cards */
+.film-card {
+    transition: transform 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--light-color);
+    overflow: hidden;
+}
+
+.film-card:hover {
+    transform: translateY(-5px);
+}
+
+.film-card img {
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.film-card:hover img {
+    transform: scale(1.05);
+}
+
+.film-card .card-body {
+    padding: 1.5rem;
+}
+
+.film-card .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.film-card .card-text {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* About Section */
+#about {
+    background-color: var(--gray-color);
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-details {
+    margin: 2rem 0;
+}
+
+.about-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-details li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.about-details li::before {
+    content: '•';
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+footer h3 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+footer h4 {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    margin-right: 1rem;
+}
+
+.social-links a:hover {
+    color: var(--accent-color) !important;
+}
+
+footer .nav-link {
+    color: var(--light-color) !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+footer .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #b1060f;
+    border-color: #b1060f;
+}
+
+.btn-outline-light {
+    border-width: 2px;
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-outline-light:hover {
+    background-color: var(--light-color);
+    border-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .film-card img {
+        height: 300px;
+    }
+
+    .schedule-timeline::before {
+        left: 0;
+    }
+
+    .schedule-item::before {
+        left: -5px;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

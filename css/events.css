@@ -1,0 +1,189 @@
+/* Events Page Styles */
+
+/* Header Section */
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/events-header.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0 80px;
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+}
+
+.page-header .lead {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: #e9ecef;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 2rem 0;
+    width: 50%;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.timeline-item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 40px;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 40px;
+}
+
+.timeline-content {
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border: 2px solid #007bff;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.timeline-item.left .timeline-content::before {
+    right: -48px;
+}
+
+.timeline-item.right .timeline-content::before {
+    left: -48px;
+}
+
+/* Event Cards */
+.event-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.event-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 1.5rem;
+}
+
+.event-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.event-details {
+    margin-bottom: 1rem;
+}
+
+.event-details p {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.event-details i {
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+.event-description {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 40px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 80px;
+    }
+
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+        padding-right: 0;
+    }
+
+    .timeline-item.left .timeline-content::before,
+    .timeline-item.right .timeline-content::before {
+        left: -48px;
+    }
+
+    .page-header {
+        padding: 100px 0 60px;
+    }
+
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-header .lead {
+        font-size: 1rem;
+    }
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+} 

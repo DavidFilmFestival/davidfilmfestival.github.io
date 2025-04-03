@@ -1,0 +1,201 @@
+{
+    "festival": {
+        "name": "International Film Festival 2024",
+        "subtitle": "Celebrating the Art of Cinema",
+        "dates": "May 15-26, 2024",
+        "location": "Los Angeles, California"
+    },
+    "navigation": {
+        "brand": "IFF",
+        "links": [
+            {"text": "News", "url": "news.html"},
+            {"text": "Jury", "url": "jury.html"},
+            {"text": "Events", "url": "events.html"},
+            {"text": "Awards", "url": "awards.html"},
+            {"text": "Selection", "url": "selection.html"}
+        ]
+    },
+    "featured_films": {
+        "title": "Featured Films",
+        "films": [
+            {
+                "title": "The Last Symphony",
+                "director": "Maria Rodriguez",
+                "country": "Spain",
+                "duration": "120 min",
+                "category": "Competition",
+                "image": "images/films/last-symphony.jpg",
+                "description": "A powerful story about a composer's final masterpiece"
+            },
+            {
+                "title": "Urban Dreams",
+                "director": "James Chen",
+                "country": "Hong Kong",
+                "duration": "95 min",
+                "category": "Un Certain Regard",
+                "image": "images/films/urban-dreams.jpg",
+                "description": "A visual journey through metropolitan life"
+            },
+            {
+                "title": "The Silent Echo",
+                "director": "Anna Kowalski",
+                "country": "Poland",
+                "duration": "110 min",
+                "category": "Competition",
+                "image": "images/films/silent-echo.jpg",
+                "description": "An intimate portrait of a family's unspoken truths"
+            }
+        ]
+    },
+    "schedule": {
+        "title": "Festival Schedule",
+        "days": [
+            {
+                "date": "May 15, 2024",
+                "events": [
+                    {
+                        "time": "19:00",
+                        "title": "Opening Ceremony",
+                        "location": "Grand Theater",
+                        "description": "Official opening of the festival with special guests"
+                    },
+                    {
+                        "time": "20:30",
+                        "title": "Opening Film Premiere",
+                        "location": "Grand Theater",
+                        "description": "World premiere of 'The Last Symphony'"
+                    }
+                ]
+            },
+            {
+                "date": "May 16, 2024",
+                "events": [
+                    {
+                        "time": "14:00",
+                        "title": "Competition Screenings",
+                        "location": "Cinema 1",
+                        "description": "First day of competition films"
+                    },
+                    {
+                        "time": "17:00",
+                        "title": "Director's Talk",
+                        "location": "Festival Hub",
+                        "description": "Q&A session with Maria Rodriguez"
+                    }
+                ]
+            }
+        ]
+    },
+    "about": {
+        "title": "About the Festival",
+        "description": "The International Film Festival is one of the world's most prestigious film events, bringing together extraordinary talent from across the globe. Since its inception, the festival has been a platform for groundbreaking cinema and emerging voices in filmmaking.",
+        "image": "images/about/festival.jpg",
+        "details": [
+            "76th Edition",
+            "Over 200 Films",
+            "50+ Countries",
+            "12 Days of Cinema"
+        ]
+    },
+    "jury": {
+        "title": "Festival Jury 2024",
+        "description": "Distinguished professionals from the world of cinema",
+        "members": [
+            {
+                "name": "David Lynch",
+                "role": "Jury President",
+                "country": "USA",
+                "image": "images/jury/david-lynch.jpg",
+                "bio": "Acclaimed director and screenwriter"
+            },
+            {
+                "name": "Sofia Coppola",
+                "role": "Jury Member",
+                "country": "USA",
+                "image": "images/jury/sofia-coppola.jpg",
+                "bio": "Award-winning filmmaker"
+            },
+            {
+                "name": "Wong Kar-wai",
+                "role": "Jury Member",
+                "country": "Hong Kong",
+                "image": "images/jury/wong-kar-wai.jpg",
+                "bio": "Visionary director"
+            }
+        ]
+    },
+    "awards": {
+        "title": "Festival Awards",
+        "categories": [
+            {
+                "name": "Palme d'Or",
+                "description": "The highest honor awarded at the festival",
+                "image": "images/awards/palme-dor.jpg"
+            },
+            {
+                "name": "Grand Prix",
+                "description": "The second most prestigious award",
+                "image": "images/awards/grand-prix.jpg"
+            },
+            {
+                "name": "Jury Prize",
+                "description": "Special recognition from the jury",
+                "image": "images/awards/jury-prize.jpg"
+            }
+        ]
+    },
+    "news": {
+        "title": "Latest News",
+        "articles": [
+            {
+                "title": "Jury President Announcement",
+                "date": "2024-01-15",
+                "image": "images/news/jury-president.jpg",
+                "summary": "David Lynch named Jury President for the 76th edition"
+            },
+            {
+                "title": "Official Selection Revealed",
+                "date": "2024-03-01",
+                "image": "images/news/official-selection.jpg",
+                "summary": "21 films in competition for the Palme d'Or"
+            }
+        ]
+    },
+    "events": {
+        "title": "Festival Events",
+        "categories": [
+            {
+                "name": "Screenings",
+                "events": [
+                    {
+                        "title": "Competition Films",
+                        "location": "Main Theater",
+                        "dates": "May 15-25",
+                        "description": "Daily screenings of competition entries"
+                    }
+                ]
+            },
+            {
+                "name": "Special Events",
+                "events": [
+                    {
+                        "title": "Masterclass Series",
+                        "location": "Festival Hub",
+                        "dates": "May 16-24",
+                        "description": "Daily masterclasses with renowned filmmakers"
+                    }
+                ]
+            }
+        ]
+    },
+    "contact": {
+        "address": "123 Festival Avenue, Los Angeles, CA 90001",
+        "email": "info@filmfestival.com",
+        "phone": "+1 (323) 555-0123",
+        "social": {
+            "facebook": "https://facebook.com/filmfestival",
+            "instagram": "https://instagram.com/filmfestival",
+            "twitter": "https://twitter.com/filmfestival"
+        }
+    }
+} 

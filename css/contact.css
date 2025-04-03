@@ -1,0 +1,93 @@
+/* Contact Page Styles */
+
+.page-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1478720568477-152d9b164e26');
+    /* TODO: Replace with local image at: images/contact/header-bg.jpg */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0 80px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 4rem 0;
+}
+
+.contact-info {
+    background: white;
+    padding: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.contact-info h3 {
+    color: #333;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+.contact-info ul {
+    margin-bottom: 2rem;
+}
+
+.contact-info ul li {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.contact-info ul li i {
+    width: 30px;
+    color: #007bff;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.social-links {
+    margin-top: 2rem;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 100px 0 60px;
+    }
+
+    .contact-info {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.75rem;
+    }
+
+    .contact-info ul li {
+        font-size: 1rem;
+    }
+} 

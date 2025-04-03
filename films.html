@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Films - International Film Festival</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">IFF</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="schedule.html">Schedule</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="films.html">Films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary ms-2" href="tickets.html">Get Tickets</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Films Header -->
+    <section class="page-header py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Featured Films</h1>
+            <p class="text-center lead">Discover the most anticipated films of the festival</p>
+        </div>
+    </section>
+
+    <!-- Films Grid -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4" id="films-grid">
+                <!-- Films will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h3 class="mb-4">IFF</h3>
+                    <p>Celebrating the art of cinema with the world's most innovative filmmakers.</p>
+                    <div class="social-links">
+                        <a href="#" class="text-light me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="mb-4">Quick Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="schedule.html" class="text-light text-decoration-none">Schedule</a></li>
+                        <li><a href="films.html" class="text-light text-decoration-none">Films</a></li>
+                        <li><a href="about.html" class="text-light text-decoration-none">About</a></li>
+                        <li><a href="tickets.html" class="text-light text-decoration-none">Tickets</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="mb-4">Contact</h4>
+                    <ul class="list-unstyled contact-info">
+                        <!-- Contact info will be loaded from JSON -->
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="mb-4">Newsletter</h4>
+                    <p>Subscribe to our newsletter for updates and exclusive content.</p>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; <span id="year"></span> International Film Festival. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/films.js"></script>
+</body>
+</html> 
