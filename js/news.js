@@ -33,16 +33,16 @@ function updatePageContent() {
 
     // Update news section
     const newsContainer = document.querySelector('.news-grid');
-    if (newsContainer && festivalData.news && Array.isArray(festivalData.news)) {
-        const newsHTML = festivalData.news.map(news => `
+    if (newsContainer && festivalData.news && Array.isArray(festivalData.news.articles)) {
+        const newsHTML = festivalData.news.articles.map(article => `
             <div class="news-card">
                 <div class="news-image">
-                    <img src="${news.image}" alt="${news.title}">
+                    <img src="${article.image}" alt="${article.title}">
                 </div>
                 <div class="news-content">
-                    <h3>${news.title}</h3>
-                    <p class="news-date">${news.date}</p>
-                    <p>${news.excerpt}</p>
+                    <h3>${article.title}</h3>
+                    <p class="news-date">${formatDate(article.date)}</p>
+                    <p>${article.summary}</p>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </div>
@@ -61,7 +61,7 @@ function updatePageContent() {
     }
 
     // Update social media links
-    if (festivalData.social) {
+    if (festivalData.contact && festivalData.contact.social) {
         const socialLinks = {
             facebook: document.getElementById('facebook-link'),
             twitter: document.getElementById('twitter-link'),
@@ -69,8 +69,8 @@ function updatePageContent() {
         };
 
         Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.social[platform]) {
-                socialLinks[platform].href = festivalData.social[platform];
+            if (socialLinks[platform] && festivalData.contact.social[platform]) {
+                socialLinks[platform].href = festivalData.contact.social[platform];
             }
         });
     }

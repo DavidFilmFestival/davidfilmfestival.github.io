@@ -33,16 +33,17 @@ function updatePageContent() {
 
     // Update jury section
     const juryContainer = document.querySelector('.jury-grid');
-    if (juryContainer && festivalData.jury && Array.isArray(festivalData.jury)) {
-        const juryHTML = festivalData.jury.map(member => `
+    if (juryContainer && festivalData.jury && Array.isArray(festivalData.jury.members)) {
+        const juryHTML = festivalData.jury.members.map(member => `
             <div class="jury-card">
                 <div class="jury-image">
                     <img src="${member.image}" alt="${member.name}">
                 </div>
                 <div class="jury-content">
                     <h3>${member.name}</h3>
-                    <p class="jury-title">${member.title}</p>
-                    <p>${member.bio}</p>
+                    <p class="jury-role">${member.role}</p>
+                    <p class="jury-country">${member.country}</p>
+                    <p class="jury-bio">${member.bio}</p>
                 </div>
             </div>
         `).join('');
@@ -60,7 +61,7 @@ function updatePageContent() {
     }
 
     // Update social media links
-    if (festivalData.social) {
+    if (festivalData.contact && festivalData.contact.social) {
         const socialLinks = {
             facebook: document.getElementById('facebook-link'),
             twitter: document.getElementById('twitter-link'),
@@ -68,8 +69,8 @@ function updatePageContent() {
         };
 
         Object.keys(socialLinks).forEach(platform => {
-            if (socialLinks[platform] && festivalData.social[platform]) {
-                socialLinks[platform].href = festivalData.social[platform];
+            if (socialLinks[platform] && festivalData.contact.social[platform]) {
+                socialLinks[platform].href = festivalData.contact.social[platform];
             }
         });
     }
