@@ -3,26 +3,17 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
+        // Try the direct relative path first
         const response = await fetch('data/festival-data.json');
         if (!response.ok) {
-            // If direct fetch fails, try with repository name
-            const pathSegments = window.location.pathname.split('/');
-            const repoName = pathSegments[1];
-            const baseUrl = repoName ? `/${repoName}` : '';
-            const secondResponse = await fetch(`${baseUrl}/data/festival-data.json`);
-            
-            if (!secondResponse.ok) {
-                throw new Error('Failed to load festival data');
-            }
-            festivalData = await secondResponse.json();
-        } else {
-            festivalData = await response.json();
+            throw new Error('Failed to load festival data');
         }
+        festivalData = await response.json();
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
         // Add fallback data for testing
-        document.querySelector('.page-header h1').textContent = "Official Selection";
+        document.querySelector('.page-header h1').textContent = "Film Selection";
         document.querySelector('.page-header p').textContent = "Discover our curated selection of outstanding films.";
     }
 }

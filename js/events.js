@@ -3,12 +3,8 @@ let festivalData = null;
 
 async function loadFestivalData() {
     try {
-        // Get the repository name from the URL path
-        const pathSegments = window.location.pathname.split('/');
-        const repoName = pathSegments[1]; // This will be 'home' or whatever name you chose
-        const baseUrl = repoName ? `/${repoName}` : '';
-            
-        const response = await fetch(`${baseUrl}/data/festival-data.json`);
+        // Try the direct relative path first
+        const response = await fetch('data/festival-data.json');
         if (!response.ok) {
             throw new Error('Failed to load festival data');
         }
@@ -16,6 +12,9 @@ async function loadFestivalData() {
         updatePageContent();
     } catch (error) {
         console.error('Error loading festival data:', error);
+        // Add fallback data for testing
+        document.querySelector('.page-header h1').textContent = "Festival Events";
+        document.querySelector('.page-header p').textContent = "Explore our exciting lineup of events.";
     }
 }
 // Update page content with loaded data
